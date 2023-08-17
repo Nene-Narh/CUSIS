@@ -1,0 +1,456 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=.7" >
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gauge.js/1.3.7/gauge.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <title>Term Calculator</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #fff;
+max-width: 100%;
+margin: 0;
+    }
+    
+    h1{
+        text-align: center;
+    }
+    .images{
+        margin-right: 10px;
+   width: 60px;
+   height: 60px;
+    }
+    .stud-info{      
+      display: block;
+      color: black;
+      font-weight: bold; 
+      margin-left: 9%;
+    }
+    
+     .stud-info label {
+       display: none;
+      font-weight: bold;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+    header{
+        display: flex;
+        align-items: center;
+        padding-top: 5px;
+        background: linear-gradient(to right, #8A3324, #A52A2A); 
+        color: black;  
+        height: 70px;
+        max-width: inherit;
+    }
+    h4 {
+        width: 100%;
+        text-align: center;
+        margin-left: -70px;
+    }
+     .menu-container {
+  position: relative;
+}
+
+.menu-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+margin-top: 10px;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  padding: 10px;
+  list-style-type: none;
+  width: 20rem;
+  top: 30px;
+  box-shadow: 
+      0px 2px 10px rgba(0,0,0,0.2), 
+      0px 10px 20px rgba(0,0,0,0.3), 
+      0px 30px 60px 1px rgba(0,0,0,0.5);
+}
+
+.menu li {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+li:not(.active):hover a{
+  color: black;
+  border-right:5px solid #8a3324;
+  background: bisque;
+}
+.menu a {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid black;
+  text-decoration: none;
+  display:block;
+  height:100%;
+  width:100%;
+  line-height:50px;
+  color:black;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-left:10px;
+  border-right: solid black;
+  letter-spacing: 1px;
+  transition:all 0.3s linear;
+}
+.menu img{
+  height: 20px;
+  width: 20px;
+  background-color: inherit;
+  margin-right: 1rem;
+}
+
+footer{
+    text-align: center;
+    max-width: 100%;
+    margin: 2rem;
+}
+.close-menu {
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+  border: black solid;
+  text-align: center;
+  line-height: 20px;
+  font-size: 20px;
+  color: black; 
+  display: none;
+}
+.sublist {
+      display: none;
+      margin-left: -3rem;
+      list-style-type: none;
+    }
+
+    li:hover .sublist {
+      display: block;
+    }
+    .credit-input {
+      width: 30px;
+      margin-right: 5px;
+    }
+    .overall-cgpa{
+        margin-top: 50px;
+        margin-bottom: 5px;
+    }
+    .overall-cgpa input[type="text"]{
+        width: 40px;
+    } 
+    .totalCreditsDone {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .totalCreditsDone input[type="text"]{
+        width: 40px;
+    } 
+
+    
+    @media screen and (max-width: 600px) {
+.table{
+    margin-left: 5rem;
+}
+.calculate{
+        margin-left: 12.8rem !important;
+        background: bisque;
+    }
+    .overall-cgpa{
+        margin-left: 5rem;
+    }
+     .totalCreditsDone {
+        margin-left: 5rem;
+    }
+}
+    .calculate{
+        margin-top: 5px;
+        margin-left: 28rem;
+        cursor: pointer;
+  border-radius: 2rem;
+  border: solid 1px #8A3324;
+  background: linear-gradient(to right, white, bisque);  
+  color: black;
+  padding: 5px;
+}
+.calculate:hover{
+  background: linear-gradient(to bottom, #8A3324, #A52A2A);
+  color: black;
+  border: solid 1px bisque;
+}
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script> 
+    // Menu icon functionality
+function toggleMenu() {
+  var menu = document.getElementById("menu");
+  var main = document.getElementById("main");
+  var menuIcon = document.getElementById("menu-icon");
+  var closeIcon = document.getElementById("close-menu");
+
+  if (menu && menuIcon && closeIcon) {
+    if (menu.style.display === "none") {
+      menu.style.display = "block";
+      menuIcon.style.display = "none";
+      closeIcon.style.display = "block";
+     
+    } else {
+      menu.style.display = "none";
+      menuIcon.style.display = "block";
+      closeIcon.style.display = "none";
+      main.style.marginRight = "0";
+    }
+  }
+}
+
+  </script>
+   <script>
+                $(document).ready(function(){
+                // Get the current page URL
+                var currentPageUrl = window.location.href;
+              
+                // Get the menu items
+                var menuItems = $('.menu li');
+              
+                // Loop through the menu items
+                  menuItems.each(function(){
+                    var menuItemUrl = $(this).find('a').attr('href');
+                  
+                  // Compare the current page URL with the menu item URL
+                  if (currentPageUrl.indexOf(menuItemUrl) !== -1) {
+                    $(this).addClass('active'); // Add the active class to the matching menu item
+                  }
+                  });
+                });
+              </script>           
+ <!--  -->
+</head>
+<body>
+  <header>
+    <img class="images" src="{% static 'core/cu_logo.png' %}" alt="CU Logo">
+    <h4>Central University Student Information System</h4>
+  </header>
+<div class="menu-container pl-5">
+    <div class="menu-icon" id="menu-icon" onclick="toggleMenu()"><span><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg"></span></div>
+    <div class="close-menu" id="close-menu" onclick="toggleMenu()">
+<span>&times;</span>
+</div>
+    <ul class="menu" id="menu">
+      <li id="item"><a href="{% url 'course' %}"><img src="{% static 'core/online-course-icon.svg' %}"> Course Planner</a></li>
+      <li id="item"><a href="{% url 'viewboard' %}"><img src="{% static 'core/in-progress-icon.svg' %}">Progress View</a></li>
+      <li id="item"><a href=""><img src="{% static 'core/gpa-calculator-icon.svg' %}" alt="">GPA Calculator</a>
+      <ul class="sublist">
+        <li><a href="{% url 'gradcal' %}">Graduation Calculator</a></li>
+        <li><a href="{% url 'termcal' %}">Term Calculator</a></li>
+      </ul>
+      </li>
+        <li id="item"><a href="{% url 'logout' %}"><img src="{% static 'core/logout-line-icon.svg' %}" alt="">Logout </a></li>
+    </ul> 
+  </div>
+<div class="container">
+     <div class="main" id="main">
+   <div style="display: flex;" class="overall-cgpa">
+    <label style="min-width: 10rem;" for="overall-cgpa">Current GPA:</label>
+    <input class="form-control" style="width: 5rem;" type="text" id="overall-cgpa" value="{{cgpa|floatformat:2}}">
+  </div>
+  <div style="display: flex;" class="totalCreditsDone">
+    <label style="min-width: 10rem;" for="totalCreditsDone">Credits Earned:</label>
+    <input class="form-control" style="width: 5rem;" type="text" id="totalCreditsDone" value="{{applied_ch}}">
+  </div>
+    <form method="POST">
+      {% csrf_token %}
+      <table class="table">
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Credits</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody id="table-body">
+      <!-- JavaScript will generate the rows here -->
+      <tr>
+        <td><input class="form-control" placeholder="Course 1" style="width: 20rem;" type="text"  name="course1"></td>
+        <td><input class="form-control" style="width: 5rem;" type="number" min="1" name="credit1"></td>
+        <td><select class="form-control" style="width: 5rem;" name="grade1">
+          <option>------</option>
+          <option value="4.00">A</option>
+          <option value="3.50">B+</option>
+          <option value="3.00">B</option>
+          <option value="2.50">C+</option>
+          <option value="2.00">C</option>
+          <option value="1.50">D+</option>
+          <option value="1.00">D</option>
+          <option value="0.00">F</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td><input class="form-control" placeholder="Course 2" style="width: 20rem;" type="text"  name="course2"></td>
+        <td><input class="form-control" style="width: 5rem;" type="number" min="1" name="credit2"></td>
+        <td><select class="form-control" style="width: 5rem;" name="grade2">
+          <option>------</option>
+          <option value="4.00">A</option>
+          <option value="3.50">B+</option>
+          <option value="3.00">B</option>
+          <option value="2.50">C+</option>
+          <option value="2.00">C</option>
+          <option value="1.50">D+</option>
+          <option value="1.00">D</option>
+          <option value="0.00">F</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td><input class="form-control" placeholder="Course 3" style="width: 20rem;" type="text"  name="course3"></td>
+        <td><input class="form-control" style="width: 5rem;" type="number" min="1" name="credit3"></td>
+        <td><select class="form-control" style="width: 5rem;" name="grade3">
+          <option>------</option>
+          <option value="4.00">A</option>
+          <option value="3.50">B+</option>
+          <option value="3.00">B</option>
+          <option value="2.50">C+</option>
+          <option value="2.00">C</option>
+          <option value="1.50">D+</option>
+          <option value="1.00">D</option>
+          <option value="0.00">F</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td><input class="form-control" placeholder="Course 4" style="width: 20rem;" type="text"  name="course4"></td>
+        <td><input class="form-control" style="width: 5rem;" type="number" min="1" name="credit4"></td>
+        <td><select class="form-control" style="width: 5rem;" name="grade4">
+          <option>------</option>
+          <option value="4.00">A</option>
+          <option value="3.50">B+</option>
+          <option value="3.00">B</option>
+          <option value="2.50">C+</option>
+          <option value="2.00">C</option>
+          <option value="1.50">D+</option>
+          <option value="1.00">D</option>
+          <option value="0.00">F</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td><input class="form-control" placeholder="Course 5" style="width: 20rem;" type="text"  name="course5"></td>
+        <td><input class="form-control" style="width: 5rem;" type="number" min="1" name="credit5"></td>
+        <td><select class="form-control" style="width: 5rem;" name="grade5">
+          <option>------</option>
+          <option value="4.00">A</option>
+          <option value="3.50">B+</option>
+          <option value="3.00">B</option>
+          <option value="2.50">C+</option>
+          <option value="2.00">C</option>
+          <option value="1.50">D+</option>
+          <option value="1.00">D</option>
+          <option value="0.00">F</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td><input class="form-control" placeholder="Course 6" style="width: 20rem;" type="text"  name="course6"></td>
+        <td><input class="form-control" style="width: 5rem;" type="number" min="1" name="credit6"></td>
+        <td><select class="form-control" style="width: 5rem;" name="grade6">
+          <option>------</option>
+          <option value="4.00">A</option>
+          <option value="3.50">B+</option>
+          <option value="3.00">B</option>
+          <option value="2.50">C+</option>
+          <option value="2.00">C</option>
+          <option value="1.50">D+</option>
+          <option value="1.00">D</option>
+          <option value="0.00">F</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td><input class="form-control" placeholder="Course 7" style="width: 20rem;" type="text"  name="course7"></td>
+        <td><input class="form-control" style="width: 5rem;" type="number" min="1" name="credit7"></td>
+        <td><select class="form-control" style="width: 5rem;" name="grade7">
+          <option>------</option>
+          <option value="4.00">A</option>
+          <option value="3.50">B+</option>
+          <option value="3.00">B</option>
+          <option value="2.50">C+</option>
+          <option value="2.00">C</option>
+          <option value="1.50">D+</option>
+          <option value="1.00">D</option>
+          <option value="0.00">F</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td><input class="form-control" placeholder="Course 8" style="width: 20rem;" type="text"  name="course8"></td>
+        <td><input class="form-control" style="width: 5rem;" type="number" min="1" name="credit8"></td>
+        <td><select class="form-control" style="width: 5rem;" name="grade8">
+          <option>------</option>
+          <option value="4.00">A</option>
+          <option value="3.50">B+</option>
+          <option value="3.00">B</option>
+          <option value="2.50">C+</option>
+          <option value="2.00">C</option>
+          <option value="1.50">D+</option>
+          <option value="1.00">D</option>
+          <option value="0.00">F</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td><input class="form-control" placeholder="Course 9" style="width: 20rem;" type="text"  name="course9"></td>
+        <td><input class="form-control" style="width: 5rem;" type="number" min="1" name="credit9"></td>
+        <td><select class="form-control" style="width: 5rem;" name="grade9">
+          <option>------</option>
+          <option value="4.00">A</option>
+          <option value="3.50">B+</option>
+          <option value="3.00">B</option>
+          <option value="2.50">C+</option>
+          <option value="2.00">C</option>
+          <option value="1.50">D+</option>
+          <option value="1.00">D</option>
+          <option value="0.00">F</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td><input class="form-control" placeholder="Course 10" style="width: 20rem;" type="text"  name="course10"></td>
+        <td><input class="form-control" style="width: 5rem;" type="number" min="1" name="credit10"></td>
+        <td><select class="form-control" style="width: 5rem;" name="grade10">
+          <option>------</option>
+          <option value="4.00">A</option>
+          <option value="3.50">B+</option>
+          <option value="3.00">B</option>
+          <option value="2.50">C+</option>
+          <option value="2.00">C</option>
+          <option value="1.50">D+</option>
+          <option value="1.00">D</option>
+          <option value="0.00">F</option>
+        </select></td>
+      </tr>
+    </tbody>
+  </table>
+   <button class="calculate" id="calculate-button" type="submit">Calculate</button>
+    </form>
+   <div>
+ </div>
+ <div id="result-container">
+    <h2>Term GPA: {{new_gpa|floatformat:2}}</h2>
+    <p id="new-gpa"></p>
+  </div>
+ </div>
+ <footer >     
+  <p>&copy; 2023 CU-CS Project Work. All rights reserved.</p>
+</footer>
+</div>
+</body>
+</html>

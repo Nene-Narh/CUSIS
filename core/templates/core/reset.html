@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=0.5" >
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gauge.js/1.3.7/gauge.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <title> Reset password </title>
+  <style>
+     body {   
+  font-family: 'Times New Roman', Times, serif;
+  }
+  .login {
+    color: white;
+    background: #A52A2A;
+    background:  
+      -webkit-linear-gradient(to right, #A52A2A, #8A3324);
+    background: 
+      linear-gradient(to right, #A52A2A, #8A3324);
+    margin: auto;
+    box-shadow: 
+      0px 2px 10px rgba(0,0,0,0.2), 
+      0px 10px 20px rgba(0,0,0,0.3), 
+      0px 30px 60px 1px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    padding: 50px;
+    width: fit-content;
+    margin-top: 10%;
+  }
+  .login .head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .login .images{
+    display: inline-block;
+   width: 40px;
+   height: 40px;
+  }
+  .login .head .company {
+    font-size: 1.5em;
+    text-align: center;
+    position: inherit;
+    display: flex;
+  }
+  .login .msg {
+    text-align: center;
+  }
+  .login .form input[type=email].text {
+    border: none;
+    background: none;
+    box-shadow: 0px 2px 0px 0px white;
+    width: 100%;
+    color: white;
+    font-size: 1em;
+    outline: none; 
+  }
+  .login .form .text::placeholder {
+    color: #D3D3D3;
+  }
+  .login .form input[type=password].password {
+    border: none;
+    background: none;
+    box-shadow: 0px 2px 0px 0px white;
+    width: 100%;
+    color: white;
+    font-size: 1em;
+    outline: none;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  .login .form .password::placeholder {
+    color: #D3D3D3;
+  }
+  .login .form .btn-login {
+    background: none;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0px 0px 0px 2px white;
+    border-radius: 3px;
+    padding: 5px 2em;
+    transition: 0.5s;
+  }
+  .login .form .btn-login:hover {
+    background: white;
+    color: dimgray;
+    transition: 0.5s;
+  }
+  .login .forgot {
+    text-decoration: none;
+    color: white;
+    float: right;
+  }
+  .login .register-link{
+      text-decoration: none;
+      color: white;
+      float: center;
+  }
+  .login .register-link:hover{
+    background: white;
+    color: dimgray;
+    transition: 0.5s;
+    border-radius: 0.25rem;
+}
+  .login .rg-l{
+    text-align: center;
+  }
+  footer{
+    text-align: center;
+    max-width: 100%;
+    margin: 2rem;
+}
+  </style>
+</head>
+<body>
+<section class='login' id='login'>
+  <div class="container" style="width: 50%;" align="center">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+  </div>
+  <div class='head'>
+    <img class="images" src="{% static 'core/cu_logo.png' %}" alt="CU Logo">
+  <h4 class='company'>Central University Student Information System</h4>
+  </div>
+  <div class='form'>
+    <form method="POST">
+      {% csrf_token %}
+      <br><input type="email" placeholder='Email' class='text' id='username' name="username"><br><br>
+      <button class='btn-login' id='do-login' type="submit">Send</button>
+      <p class="rg-l"> Remember password? <a href="{% url 'login' %}" class='register-link'>Login</a> </p>
+    </form>
+  </div>
+</section>
+<footer >     
+  <p>&copy; 2023 CU-CS Project Work. All rights reserved.</p>
+</footer>
+</body>
+</html>

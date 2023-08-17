@@ -1,0 +1,454 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=.7" >
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gauge.js/1.3.7/gauge.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <title>View</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      margin: 0;
+      max-width: 100%;
+      background-image: url({% static 'core/bg5.jpg' %});
+      background-size: cover;
+    }
+    header{
+        display: flex;
+        align-items: center;
+        padding-top: 5px;
+        padding: 20px;
+        background: linear-gradient(to right, #8A3324, #A52A2A); 
+        color: black;  
+        height: 70px;
+        max-width: inherit;
+    }
+    h4 {
+        width: 100%;
+        text-align: center;
+        margin-left: -70px;
+    }
+    .images{
+        margin-right: 10px;
+   max-width: 60px;
+   height: 60px;
+    }
+    /*collapsible menu stylesheet*/
+  .menu-container {
+  position: relative;
+}
+
+
+.menu-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+margin-top: 10px;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  padding: 10px;
+  list-style-type: none;
+  width: 20rem;
+  /*margin: 10px;*/
+  top: 30px;
+  box-shadow: 
+      0px 2px 10px rgba(0,0,0,0.2), 
+      0px 10px 20px rgba(0,0,0,0.3), 
+      0px 30px 60px 1px rgba(0,0,0,0.5);
+}
+li:not(.active):hover a{
+  color: black;
+  border-right:5px solid #8a3324;
+  background: bisque;
+}
+.menu li {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.menu a {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid black;
+  text-decoration: none;
+  display:block;
+  height:100%;
+  width:100%;
+  line-height:50px;
+  color:black;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-left:10px;
+  border-right: solid black;
+  letter-spacing: 1px;
+  transition:all 0.3s linear;
+}
+.menu img{
+  height: 20px;
+  width: 20px;
+  background-color: inherit;
+  margin-right: 1rem;
+}
+
+.close-menu {
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+  border: black solid;
+  text-align: center;
+  line-height: 20px;
+  font-size: 20px;
+  color: black;
+  display: none;
+}
+    .stud-info{      
+      display: block;
+      color: black;
+      font-weight: bold; 
+      margin-top: 5rem;
+      /*margin-left: 10px;*/
+    }
+
+    .info-field {  
+      background: linear-gradient(to right, #8A3324, #A52A2A);   
+      margin-top: 10px;
+      border-left: 1px solid #A52A2A;
+     /* margin-left: 10px;
+      margin-right: 10px;*/
+    }   
+ 
+    .info-field h3 {     
+      margin: 0;
+      max-width: 100%;   
+      text-transform: uppercase;        
+    }
+
+    .grad-req{         
+         display: flex;          
+         color: white;
+    }
+
+.sublist {
+      display: none;
+      margin-left: -3rem;
+      list-style-type: none;
+    }
+
+    li:hover .sublist {
+      display: block;
+    }
+
+    .grad-req h3{
+      margin: 0; 
+      align-items:flex-start; 
+    }    
+    
+    .info-field label {
+      background: linear-gradient(to bottom, white, bisque);
+      display: block;
+      font-weight: bold;
+      padding:20px;
+      font-weight: bold;
+    }
+    
+    .stud-info label {
+       display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+    
+    .info-icon {
+      color: #007bff;
+      cursor: pointer;
+    }
+
+    .info-list {
+      margin-top: 10px;
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    .checkbox-field {
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .checkbox-field label {
+      margin-right: 10px;
+    }
+    
+    .total-credit-hours-field label {
+      margin-top: 10px;
+    }
+    #course-info-field{
+      box-shadow: 
+      0px 2px 10px rgba(0,0,0,0.2), 
+      0px 10px 20px rgba(0,0,0,0.3), 
+      0px 30px 60px 1px rgba(0,0,0,0.5);
+    }
+    #credit-hours-field{
+      box-shadow: 
+      0px 2px 10px rgba(0,0,0,0.2), 
+      0px 10px 20px rgba(0,0,0,0.3), 
+      0px 30px 60px 1px rgba(0,0,0,0.5);
+    }
+    #final-gpa-field{
+      box-shadow: 
+      0px 2px 10px rgba(0,0,0,0.2), 
+      0px 10px 20px rgba(0,0,0,0.3), 
+      0px 30px 60px 1px rgba(0,0,0,0.5);
+    }
+
+footer{
+    text-align: center;
+    max-width: 100%;
+    margin: 2rem;
+}
+ 
+    
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><script>
+    $(document).ready(function() {
+// Get student information from register.html
+var studentName = localStorage.getItem('studentName');
+var program = localStorage.getItem('program');
+
+// Get cumulative GPA from course.html
+var cumulativeGPA = sessionStorage.getItem('overallGPA');
+
+// Update the elements on the view.html page 
+$('#student-name').text(studentName); 
+$('#program').text(program); 
+$('#cumulative-gpa').text(cumulativeGPA); 
+
+// Check if all courses are passed and update the checkbox 
+var registeredCourses = sessionStorage.getItem('registeredCourses'); 
+var passCourses = sessionStorage.getItem('passCourses'); 
+var failedCourses = sessionStorage.getItem('failedCourses'); 
+var failedCoursesList = JSON.parse(sessionStorage.getItem('failedCoursesList')); 
+var passAllCourses = passCourses === registeredCourses; 
+$('#pass-all-courses').prop('checked', passAllCourses); 
+$('#registered-courses').text(registeredCourses); 
+$('#pass-courses').text(passCourses); 
+$('#failed-courses').text(failedCourses); 
+
+// Calculate the total credit hours from course.html
+var totalCreditHours = 0;
+$('.course').each(function() {
+  var creditHours = parseInt($(this).find('.credit-hours').val());
+  totalCreditHours += creditHours;
+});
+$('#total-credit-hours').text(totalCreditHours);
+
+// Check if the checkbox should be ticked based on the program and credit hours
+var checkbox = $('#credit-hours-checkbox');
+
+if (program !== 'Diploma in Paralegal Studies' && program !== 'Diploma in Law' && program !== 'Doctor of Pharmacy') {
+  if (totalCreditHours >= 120) {
+    checkbox.prop('checked', true);
+  }
+} else if (program === 'Doctor of Pharmacy') {
+  if (totalCreditHours >= 150) {
+    checkbox.prop('checked', true);
+  }
+} else if (program === 'Diploma in Paralegal Studies' || program === 'Diploma in Law') {
+  if (totalCreditHours >= 60) {
+    checkbox.prop('checked', true);
+  }
+}
+
+// Calculate the Final GPA
+var currentCGPA = parseFloat(cumulativeGPA);
+var currentCreditHours = parseInt(totalCreditHours);
+var finalGPAThreshold = 1.5; // Minimum required Final GPA
+var projectedFinalGPA = (currentCGPA * currentCreditHours + remainingCreditHours * finalGPAThreshold) / (currentCreditHours + remainingCreditHours);
+projectedFinalGPA = projectedFinalGPA.toFixed(2); // Round the projected Final GPA to 2 decimal places
+
+// Update the Final GPA field
+var finalGPAField = $('#final-gpa-field');
+var finalGPACheckbox = $('#final-gpa-checkbox');
+var finalGPAErrorMessage = $('<p class="error-message">');
+finalGPAErrorMessage.text(`Your projected Final GPA: ${projectedFinalGPA}`);
+if (projectedFinalGPA >= finalGPAThreshold) {
+  finalGPACheckbox.prop('checked', true);
+} else {
+  finalGPAField.append(finalGPAErrorMessage);
+}
+    });
+</script>
+<script>             
+        // Menu icon functionality
+function toggleMenu() {
+  var menu = document.getElementById("menu");
+  var main = document.getElementById("main");
+  var menuIcon = document.getElementById("menu-icon");
+  var closeIcon = document.getElementById("close-menu");
+
+  if (menu && menuIcon && closeIcon) {
+    if (menu.style.display === "none") {
+      menu.style.display = "block";
+      menuIcon.style.display = "none";
+      closeIcon.style.display = "block";
+    } else {
+      menu.style.display = "none";
+      menuIcon.style.display = "block";
+      closeIcon.style.display = "none";
+      main.style.marginLeft = "0";
+    }
+  }
+}
+    </script> 
+    <script>
+      $(document).ready(function(){
+      // Get the current page URL
+      var currentPageUrl = window.location.href;
+    
+      // Get the menu items
+      var menuItems = $('.menu li');
+    
+      // Loop through the menu items
+        menuItems.each(function(){
+          var menuItemUrl = $(this).find('a').attr('href');
+        
+        // Compare the current page URL with the menu item URL
+        if (currentPageUrl.indexOf(menuItemUrl) !== -1) {
+          $(this).addClass('active'); // Add the active class to the matching menu item
+        }
+        });
+      });
+    </script>
+</head>
+<body>
+  <header>
+    <img class="images" src="{% static 'core/cu_logo.png' %}" alt="CU Logo">
+    <h4>Central University Student Information System</h4>
+  </header>
+<div class="menu-container pl-5">
+    <div class="menu-icon" id="menu-icon" onclick="toggleMenu()"><span><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg"></span></div>
+    <div class="close-menu" id="close-menu" onclick="toggleMenu()">
+<span>&times;</span>
+</div>
+    <ul class="menu" id="menu">
+      <li id="item"><a href="{% url 'course' %}"><img src="{% static 'core/online-course-icon.svg' %}"> Course Planner</a></li>
+      <li id="item"><a href="{% url 'viewboard' %}"><img src="{% static 'core/in-progress-icon.svg' %}">Progress View</a></li>
+      <li id="item"><a href=""><img src="{% static 'core/gpa-calculator-icon.svg' %}" alt="">GPA Calculator</a>
+      <ul class="sublist">
+        <li><a href="{% url 'gradcal' %}">Graduation Calculator</a></li>
+        <li><a href="{% url 'termcal' %}">Term Calculator</a></li>
+      </ul>
+      </li>
+        <li id="item"><a href="{% url 'logout' %}"><img src="{% static 'core/logout-line-icon.svg' %}" alt="">Logout </a></li>
+    </ul> 
+  </div>
+  
+  <div class="main" id="main">
+  <div class="stud-info pl-5" id="student-info-field">
+    <label for="student-name">Student Name: {{user.first_name}} {{user.last_name}} </label>
+    <label for="program">Program: {{user.program}}</label>
+    <label for="level">{{user.level}}</label>
+    <span id="level"></span>
+    <label for="cumulative-gpa">Cumulative GPA: {{cgpa|floatformat:2}}</label>
+    <span id="cumulative-gpa"></span>
+  </div>
+  <div style="display:flex; width: 100%;">
+    <h3 class="ml-5 mt-5 mb-4">Progress Bar:</h3>
+    <div class="progress ml-2 mt-5 mb-4" style="height: 40px; width: 87%; background: #ccc; border-radius: 15px;">
+      <div class="progress-bar" role="progressbar" style="font-size: 20px; {% if progressbar >= 100 %} background-color: green; {% else %} background-color: red; {% endif %} width: {{progressbar}}%;"><b>{{progressbar}} %</b></div>
+    </div>
+  </div>
+  <div class="row" style="justify-content: space-around; width: 100%;">
+    <div class="info-field" id="course-info-field" style="width: 35rem;">
+        {% if not failed_courses %}
+            <div class="grad-req" style="background-color: green;">
+              <h3 style="font-size: 20px;">Pass All Registered Courses</h3>                 
+            </div>
+            {% else %}
+            <script type="text/javascript">
+              alert(`You have failed courses, be sure to address them`);
+            </script>
+             <div class="grad-req">
+              <h3 style="font-size: 20px;">Pass All Registered Courses</h3>                 
+            </div>
+          {% endif %}  
+      <label for="registered-courses">Number of Registered Courses: {{registed_course}}</label>
+      <label for="pass-courses">Number of Passes: {{passed_course}}</label>
+      <label style="display: flex;" for="failed-courses" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Number of Failed Courses: {{failed_course}}
+          <i class="fa fa-caret-down" style="margin-left: 10px;"></i></label> 
+        <div class="collapse m-2" id="collapseExample" style="color: white;">
+         {% for course_code, course_name in failed_courses.items %}
+              <p>{{ course_name }}</p>
+          {% endfor %}
+
+        </div>
+      </div> 
+      <div class="info-field" id="credit-hours-field" style="width: 35rem;">
+          {% if remainder_ch == 0 %}
+            <div class="grad-req" style="background-color: green;">
+              <h3 style="font-size: 20px;">Minimum Required Credit Hours</h3>                 
+            </div>
+          {% else %}
+             <div class="grad-req">
+              <h3 style="font-size: 20px;">Minimum Required Credit Hours</h3>                 
+            </div>
+          {% endif %}
+        <div class="total-credit-hours-required">
+      <label for="credits-required">Credits Required: {{required_ch}}</label>
+      <span id="credits-required"></span>
+      <label for="credits-applied">Credits Applied: {{applied_ch}}</label>
+      <label for="credits-remaining">Credits Remaining: {{remainder_ch}}</label>
+      </div>
+  </div>
+  <div class="info-field" id="final-gpa-field" style="width: 35rem;">
+    {% if projectedGpa > 1.50 %}
+    <div class="grad-req" style="background-color: green;">
+      <h3 style="font-size: 20px;">Minimum Final GPA</h3>
+    </div>
+    {% else %}
+    <div class="grad-req">
+      <h3 style="font-size: 20px;">Minimum Final GPA</h3>
+    </div>
+    {% endif %}
+    <label for="required-final-gpa">Required Minimum Final GPA: 1.50</label>
+      <span id="required-final-gpa"></span>
+    <label for="projected-finalgpa">Projected Final GPA: {{projectedGpa|floatformat:2}}</label> <span id="projected-final-gpa"></span>         
+    <label for="final-gpa-checkbox">Interpretation: 
+      {% if projectedGpa >= 1.50 %} 
+          You are on track! Your projected FGPA is based on the assumption you attain an average GPA of 1.50 in your remaining credits.
+      {% else %} 
+          You need to work harder! Your projected FGPA is based on the assumption you attain an average GPA of 1.50 in your remaining credits.
+      {% endif %}
+    </label>
+  </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<footer >     
+  <p>&copy; 2023 CU-CS Project Work. All rights reserved.</p>
+</footer>
+</div>
+</body>
+</html>
