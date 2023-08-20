@@ -1,0 +1,40 @@
+1. Download Python 3.0 or Higher:
+Ensure that you have Python version 3.0 or higher downloaded and installed on your system.
+
+2. Navigate to System Folder:
+Open the system folder where you intend to set up the project.
+
+3. Open PowerShell:
+Right-click within the system folder while holding the Shift key, and select "Open PowerShell" from the context menu.
+
+4. Install Django:
+In the PowerShell terminal, install Django using the following command:
+pip install django
+
+5. Install Crispy Forms:
+Install Crispy Forms by entering the following command:
+pip install django-crispy-forms
+
+6. Install Bootstrap 4:
+Install Bootstrap 4 with the following command:
+pip install crispy-bootstrap4
+
+7. Run the Server:
+Once the necessary programs are downloaded, start the server by running the command:
+python manage.py runserver
+
+8. Access the System:
+The server will run on your local host. To access the system, open your preferred web browser and enter the following URL:
+127.0.0.1:8000
+
+9. Access the Admin Portal:
+To access the admin portal, use the URL:
+127.0.0.1:8000/admin
+
+10. Admin Portal Login:
+Use the following login credentials to access the admin portal:
+Username: admin
+Password: admin2023
+
+Please follow these instructions carefully to ensure a proper setup of the Python-based system with Django and its associated components. 
+If you encounter any issues or require further assistance, do not hesitate to seek support.
